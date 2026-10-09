@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+  index.html
+  Personal website with an alternate (dark) color theme.
+  The theme system follows the codedgar "dark theme in 5 minutes" tutorial:
+    1. Colors live in CSS variables (see style.css).
+    2. A button toggles the "dark_mode" class on <body> (see script.js).
+    3. The choice is saved in localStorage so it survives a page reload.
+-->
+<html lang="en">
+<head>
+  <!-- Character encoding and responsive viewport for phones -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anwesha Sahoo | Portfolio</title>
+
+  <!-- All colors and layout styles come from this stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- The "default" class means the light theme is active. JavaScript swaps it for "dark_mode". -->
+<body class="default">
+
+  <!-- ===== Header / navigation bar ===== -->
+  <header class="site-header">
+    <!-- Site name / logo text -->
+    <a href="#" class="logo">Anwesha Sahoo</a>
+
+    <!-- Navigation links that jump to sections on this page -->
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!--
+      Theme toggle button. script.js finds it by its id (#theme_toggler)
+      and listens for clicks. aria-label describes it for screen readers.
+    -->
+    <button id="theme_toggler" aria-label="Switch color theme">
+      <!-- The icon and label text are updated by script.js -->
+      <span class="toggle-icon">🌙</span>
+      <span class="toggle-text">Dark mode</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ===== Hero / intro section ===== -->
+    <section class="hero">
+      <h1>Hi, I'm Anwesha.</h1>
+      <p class="tagline">
+        Computer Science student at Georgia State University, interested in
+        AI/ML for health tech.
+      </p>
+      <!-- Call-to-action button styled with the accent color variable -->
+      <a href="#projects" class="btn">See my work</a>
+    </section>
+
+    <!-- ===== About section ===== -->
+    <section id="about" class="section">
+      <h2>About me</h2>
+      <p>
+        I'm a CS undergraduate graduating in May 2027. I currently work as a
+        Software Quality Engineering Intern and have done research on
+        neuroimaging data analysis. I like building tools that make messy
+        data easier to understand.
+      </p>
+    </section>
+
+    <!-- ===== Projects section: a grid of cards ===== -->
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+
+      <!-- Card container uses CSS grid (see .cards in style.css) -->
+      <div class="cards">
+        <!-- Project card 1 -->
+        <article class="card">
+          <h3>SalesIQ</h3>
+          <p>A spec-driven sales analytics pipeline for small businesses.</p>
+        </article>
+
+        <!-- Project card 2 -->
+        <article class="card">
+          <h3>Neuroimaging Analysis</h3>
+          <p>Data analysis work from my undergraduate research position.</p>
+        </article>
+
+        <!-- Project card 3: this very theme switcher -->
+        <article class="card">
+          <h3>Theme Switcher</h3>
+          <p>This site! Light and dark themes with CSS variables and vanilla JS.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Contact section with a simple form ===== -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <!-- The form shows that inputs also follow the theme colors.
+           onsubmit returns false so the demo form does not reload the page. -->
+      <form class="contact-form" onsubmit="return false;">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name">
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Say hello"></textarea>
+
+        <button type="submit" class="btn">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Anwesha Sahoo. Theme preference is saved in your browser.</p>
+  </footer>
+
+  <!--
+    The script is loaded at the end of <body> so the button and body
+    already exist when the code runs.
+  -->
+  <script src="script.js"></script>
+</body>
+</html>
